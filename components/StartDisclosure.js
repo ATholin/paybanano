@@ -4,7 +4,7 @@ import { ChevronUpIcon } from "@heroicons/react/solid";
 export default function StartDisclosure() {
   return (
     <div className="w-full py-8">
-      <div className="w-full mx-auto bg-white rounded-2xl">
+      <div className="w-full mx-auto rounded-2xl">
         <Disclosure>
           {({ open }) => (
             <>
