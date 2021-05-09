@@ -54,7 +54,7 @@ export default function Home() {
   }
 
   return (
-    <div className="mt-10 mx-4 md:mx-0">
+    <div className="bg-gray-50 pt-10 mx-4 md:mx-0">
       <div className="max-w-2xl mx-auto pb-56">
         <Title />
         <DepositAccountInformation />

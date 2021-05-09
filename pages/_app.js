@@ -94,6 +94,8 @@ export default class MyApp extends App {
       <UserContext.Provider value={this.getUserContext()}>
         <CurrencyContext.Provider value={this.getCurrencyContext()}>
           <Head>
+            <title>PayBanano</title>
+            <meta name="description" content="An easy way to accept payments using the amazing potassium-rich cryptocurrency banano" />
             <link rel="icon" href="favicon.svg" />
             <link rel="mask-icon" href="favicon.svg" color="#000000" />
             <meta name="banano" content={ process.env.NEXT_PUBLIC_DONATION_ADDRESS } />

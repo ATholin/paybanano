@@ -28,22 +28,24 @@ const Start = () => {
   }
 
   return (
-    <div className="max-w-2xl mx-4 md:mx-auto h-screen flex mt-10 sm:mt-0 sm:items-center">
-      <div className="w-full">
-        <div>
+    <div className="bg-gray-50">
+      <div className="mx-4 md:mx-auto max-w-2xl h-screen flex pt-10 sm:pt-0 sm:items-center">
+        <div className="w-full">
           <div>
-            <Title />
-            <StartDisclosure />
-          </div>
+            <div>
+              <Title />
+              <StartDisclosure />
+            </div>
 
-          <CurrencyInformationForm />
-          <DepositInformationForm />
-          <button onClick={handleSubmit} className="mt-4 w-full inline-flex justify-center rounded-md border border-transparent px-4 py-3 shadow-md border-yellow-700 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:text-sm">
-            Close
-          </button>
-          <span className="block text-center mt-1 text-sm text-red-500">{error}</span>
+            <CurrencyInformationForm />
+            <DepositInformationForm />
+            <button onClick={handleSubmit} className="mt-4 w-full inline-flex justify-center rounded-md border border-transparent px-4 py-3 shadow-md border-yellow-400 bg-yellow-300 text-base font-semibold text-yellow-800 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:text-sm">
+              Close
+            </button>
+            <span className="block text-center mt-1 text-sm text-red-500">{error}</span>
+          </div>
+          <Footer />
         </div>
-        <Footer />
       </div>
     </div>
   );
