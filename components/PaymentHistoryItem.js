@@ -25,7 +25,7 @@ const PaymentHistoryItem = (props) => {
             <p className="font-medium text-gray-900">{banano} BAN</p>
           </div>
           <div className="flex justify-between">
-            <h3>from <a title={transaction.account} target="_blank" className="underline" href={`https://creeper.banano.cc/explorer/account/${transaction.account}/history`}>{transaction.account.substring(0,12)}...</a></h3>
+            <h3>from <a rel="noreferrer" title={transaction.account} target="_blank" className="underline" href={`https://creeper.banano.cc/explorer/account/${transaction.account}/history`}>{transaction.account.substring(0,12)}...</a></h3>
             <p className="font-medium text-gray-900">{fiatAmount} {currency}</p>
           </div>
       </div>
