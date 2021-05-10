@@ -59,7 +59,9 @@ export default function Payment() {
     }
 
     const toRaw = (amount) => {
-            return bananojs().getRawStrFromBananoStr(amount.toString()) ?? 0
+        if (amount) return bananojs().getRawStrFromBananoStr(amount.toString()) 
+
+        return 0
     }
 
     return (
