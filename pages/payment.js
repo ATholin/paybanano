@@ -44,7 +44,7 @@ export default function Payment() {
     useEffect(() => {
         const transaction = paymentHistory.find((transaction) => {
             const date = new Date(transaction.local_timestamp * 1000)
-            return isAfter(date, subMinutes(new Date(), 1)) && transaction.amount == toRaw(requestAmount)
+            return isAfter(date, subMinutes(new Date(), 1)) && transaction.amount == toRaw(bananoFromUsd())
         })
 
         if (transaction) {
@@ -53,10 +53,13 @@ export default function Payment() {
         }
     }, [paymentHistory])
 
-    const fiatAmount = Math.round((requestAmount * bananoToUsd * fiatToUsd + Number.EPSILON) * 100.0) / 100.0
+    const bananoFromUsd = () => {
+        const usdRequestAmount = requestAmount / fiatToUsd;
+        return Math.round(((usdRequestAmount / bananoToUsd) + Number.EPSILON) * 1000000.0) / 1000000.0
+    }
 
     const toRaw = (amount) => {
-        return bananojs().getRawStrFromBananoStr(amount.toString())
+            return bananojs().getRawStrFromBananoStr(amount.toString()) ?? 0
     }
 
     return (
@@ -69,16 +72,16 @@ export default function Payment() {
                                 <div className="">
                                     <p className="font-black text-green-500 text-4xl">Success!</p>
                                     <svg className="checkmark mt-8 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle className="checkmark__circle" cx="26" cy="26" r="25" fill="none" /><path className="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg>
-                                    <p className="mt-6 text-center text-2xl font-bold text-gray-700">{requestAmount} BAN</p>
-                                    <p className="text-center text-gray-500">{fiatAmount} {currency}</p>
+                                    <p className="mt-6 text-center text-2xl font-bold text-gray-700">{bananoFromUsd()} BAN</p>
+                                    <p className="text-center text-gray-500">{requestAmount} {currency}</p>
                                 </div>
 
                             ) : (
                                 <div>
-                                    <QRCode renderAs="svg" value={`banano:${address}?amount=${toRaw(requestAmount)}`} size={256} className="inline mx-auto" />
+                                    <QRCode renderAs="svg" value={`banano:${address}?amount=${toRaw(bananoFromUsd())}`} size={256} className="inline mx-auto" />
                                     <p className="mt-4 text-center text-lg font-black text-gray-800">Scan this to pay</p>
-                                    <p className="text-center text-3xl font-black text-gray-800">{requestAmount} BAN</p>
-                                    <p className="text-center font-medium text-gray-600">{fiatAmount} {currency}</p>
+                                    <p className="text-center text-3xl font-black text-gray-800">{bananoFromUsd()} BAN</p>
+                                    <p className="text-center font-medium text-gray-600">{requestAmount} {currency}</p>
                                 </div>
                             )
                         }
