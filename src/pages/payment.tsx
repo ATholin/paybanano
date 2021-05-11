@@ -6,7 +6,7 @@ import { isAfter, subMinutes } from 'date-fns';
 
 import bananojs from '../helpers/bananoJsInstance'
 import UserContext from '../contexts/UserContext';
-import CurrencyContext from '../components/CurrencyContext';
+import CurrencyContext from '../contexts/CurrencyContext';
 import AddressExplorerLink from '../components/AddressExplorerLink';
 import verifyAddress from '../helpers/verifyAddress'
 
@@ -14,8 +14,8 @@ export default function Payment() {
     const { requestAmount, address, currency, paymentHistory, setPaymentHistory } = useContext(UserContext);
     const { bananoToUsd, fiatToUsd } = useContext(CurrencyContext);
 
-    const [fromAddress, setFromAddress] = useState()
-    const [block, setBlock] = useState()
+    const [fromAddress, setFromAddress] = useState<string>()
+    const [block, setBlock] = useState<string>()
 
     useEffect(() => {
         if (requestAmount < 0 || !address) {

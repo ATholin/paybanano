@@ -3,19 +3,28 @@ import App from 'next/app';
 import Router from 'next/router';
 import Head from 'next/head'
 
-import UserContext from '../contexts/UserContext';
-import CurrencyContext from '../components/CurrencyContext';
+import UserContext, { IUserContext } from '../contexts/UserContext';
+import CurrencyContext, { ICurrencyContext } from '../contexts/CurrencyContext';
 import '../styles/globals.css'
 import { currencySymbols } from '../helpers/currency';
 import verifyAddress from '../helpers/verifyAddress';
 
-export default class MyApp extends App {
+interface IState {
+  currency: string;
+  address: string;
+  requestAmount: number;
+  bananoToUsd: number;
+  fiatToUsd: number;
+  paymentHistory: Array<any>;
+}
+
+export default class MyApp extends App<any, any, IState> {
   constructor(props) {
     super(props);
     this.state = {
       currency: "USD",
       address: "",
-      requestAmount: "",
+      requestAmount: null,
       bananoToUsd: 0.0,
       fiatToUsd: 0.0,
       paymentHistory: []
@@ -23,8 +32,8 @@ export default class MyApp extends App {
   }
 
   componentDidMount = () => {
-    let currency = Router.query.currency ?? localStorage.getItem('currency')
-    const address = Router.query.address ?? localStorage.getItem('address')
+    let currency = localStorage.getItem('currency')
+    const address = localStorage.getItem('address')
 
     if (!currencySymbols.includes(currency)) {
       currency = this.state.currency
@@ -65,7 +74,7 @@ export default class MyApp extends App {
     this.setState({ paymentHistory })
   };
 
-  getUserContext = () => {
+  getUserContext = (): IUserContext => {
     return {
       currency: this.state.currency,
       address: this.state.address,
@@ -78,7 +87,7 @@ export default class MyApp extends App {
     }
   }
 
-  getCurrencyContext = () => {
+  getCurrencyContext = (): ICurrencyContext => {
     return {
       bananoToUsd: this.state.bananoToUsd,
       fiatToUsd: this.state.fiatToUsd,

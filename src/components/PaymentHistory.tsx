@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 
-import bananojs from '../helpers/bananoJsInstance'
 import UserContext from '../contexts/UserContext';
-import PaymentHistoryItem from '../components/PaymentHistoryItem';
+import PaymentHistoryItem from './PaymentHistoryItem';
 
 const PaymentHistory = () => {
     const { paymentHistory } = useContext(UserContext);

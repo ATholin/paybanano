@@ -7,7 +7,7 @@ import Title from '../components/Title'
 
 import UserContext from '../contexts/UserContext';
 import Router from 'next/router';
-import CurrencyContext from '../components/CurrencyContext';
+import CurrencyContext from '../contexts/CurrencyContext';
 import bananojs from '../helpers/bananoJsInstance'
 import verifyAddress from '../helpers/verifyAddress';
 
@@ -54,11 +54,11 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-gray-50 pt-10 mx-4 md:mx-0">
+    <div className="h-screen bg-gray-50 pt-10 mx-4 md:mx-0">
       <div className="max-w-2xl mx-auto pb-56">
         <Title />
         <DepositAccountInformation />
-        <PaymentHistory bananoToUsd={bananoToUsd} fiatToUsd={fiatToUsd} />
+        <PaymentHistory />
       </div>
       <form onSubmit={handleRequestPayment} className="bg-yellow-400 px-16 py-8 mt-6 fixed bottom-0 right-0 left-0 h-48">
         <div className="mt-1 max-w-2xl mx-auto flex rounded-md shadow-sm">
@@ -69,7 +69,7 @@ export default function Home() {
           </Link>
           <input
             value={requestAmount}
-            onChange={(e) => setRequestAmount(e.target.value)}
+            onChange={(e) => setRequestAmount(Number(e.target.value))}
             type="number"
             name="amount"
             className="focus:ring-yellow-500 bg-yellow-50 focus:border-yellow-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"

@@ -2,10 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import verifyAddress from "../helpers/verifyAddress";
 import UserContext from "../contexts/UserContext";
 
-const PaymentInformationForm = () => {
+const DepositInformationForm = () => {
   const { address, setDepositAddress } = useContext(UserContext)
 
-  const [error, setError] = useState()
+  const [error, setError] = useState<string>()
   const [currentAddress, setCurrentAddress] = useState(address)
 
   useEffect(() => {
@@ -32,4 +32,4 @@ const PaymentInformationForm = () => {
   );
 };
 
-export default PaymentInformationForm;
+export default DepositInformationForm;

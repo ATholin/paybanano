@@ -13,7 +13,7 @@ const Start = () => {
 
   const { address, currency } = useContext(UserContext)
 
-  const [error, setError] = useState()
+  const [error, setError] = useState<string>()
 
   useEffect(() => {
     setError('')

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import UserContext from '../contexts/UserContext'
 import bananojs from '../helpers/bananoJsInstance'
-import CurrencyContext from './CurrencyContext';
+import CurrencyContext from '../contexts/CurrencyContext';
 
 
 const PaymentHistoryItem = (props) => {

@@ -5,7 +5,7 @@ import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 import { currencySymbols } from '../helpers/currency'
 import UserContext from '../contexts/UserContext';
 
-const PaymentInformationForm = () => {
+const CurrencyInformationForm = () => {
 
   const { currency, setCurrency } = useContext(UserContext)
 
@@ -85,4 +85,4 @@ const PaymentInformationForm = () => {
   );
 };
 
-export default PaymentInformationForm;
+export default CurrencyInformationForm;
