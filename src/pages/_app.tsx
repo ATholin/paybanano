@@ -12,7 +12,7 @@ import verifyAddress from '../helpers/verifyAddress';
 interface IState {
   currency: string;
   address: string;
-  requestAmount: number;
+  requestAmount: string;
   bananoToUsd: number;
   fiatToUsd: number;
   paymentHistory: Array<any>;
@@ -23,8 +23,8 @@ export default class MyApp extends App<any, any, IState> {
     super(props);
     this.state = {
       currency: "USD",
-      address: "",
-      requestAmount: null,
+      address: '',
+      requestAmount: '',
       bananoToUsd: 0.0,
       fiatToUsd: 0.0,
       paymentHistory: []

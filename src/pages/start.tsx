@@ -28,7 +28,7 @@ const Start = () => {
   }
 
   return (
-    <div className="bg-gray-50">
+    <div>
       <div className="mx-4 md:mx-auto max-w-2xl h-screen flex pt-10 sm:pt-0 sm:items-center">
         <div className="w-full">
           <div>

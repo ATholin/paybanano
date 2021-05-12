@@ -25,7 +25,7 @@ export default function StartDisclosure() {
                 leaveTo="transform scale-95 opacity-0"
               >
                 <Disclosure.Panel static className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                  An easy way to accept payments using the amazing potassium-rich cryptocurrency <a target="_blank" href="https://banano.cc" className="underline text-yellow-500">banano</a>
+                  An easy way to accept payments using the amazing potassium-rich cryptocurrency <a target="_blank" rel="noreferrer" href="https://banano.cc" className="underline text-yellow-500">banano</a>
                 </Disclosure.Panel>
               </Transition>
             </>

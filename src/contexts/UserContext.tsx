@@ -3,12 +3,12 @@ import { createContext } from 'react';
 export interface IUserContext {
     address: string;
     currency: string;
-    requestAmount: number;
+    requestAmount: string;
     paymentHistory: Array<any>;
 
     setCurrency: (currency: string) => void;
     setDepositAddress: (address: string) => void
-    setRequestAmount: (amount: number) => void
+    setRequestAmount: (amount: string) => void
     setPaymentHistory: (paymentHistory: Array<any>) => void
 }
 

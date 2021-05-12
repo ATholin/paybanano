@@ -4,14 +4,11 @@ import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 
 import { currencySymbols } from '../helpers/currency'
 import UserContext from '../contexts/UserContext';
+import classNames from '../helpers/classNames';
 
 const CurrencyInformationForm = () => {
 
   const { currency, setCurrency } = useContext(UserContext)
-
-  const classNames = (...classes) => {
-    return classes.filter(Boolean).join(' ')
-  }
 
   return (
     <div>
