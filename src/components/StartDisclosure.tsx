@@ -51,7 +51,7 @@ export default function StartDisclosure() {
                 leaveTo="transform scale-95 opacity-0"
               >
                 <Disclosure.Panel static className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                  No, all transactions are sent directly to the account specified. The application only checks the public account transactions through the public key.
+                  No, all transactions are sent directly to the account specified. The application only checks the public account transactions through the public key. No monkey business!
               </Disclosure.Panel>
               </Transition>
             </>
