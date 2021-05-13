@@ -21,12 +21,15 @@ const PaymentHistoryItem = (props) => {
   return (
     <div className="py-5 px-3 border border-1 border-gray-200 bg-white rounded-xl shadow-sm">
       <div className="flex justify-between">
-        <p>Received <span title={date.toString()} className="font-medium text-yellow-500">{formatDistance(date, new Date(), { addSuffix: true })}</span></p>
-        <p className="font-medium text-gray-900">{banano} BAN</p>
+        <p>Received <span title={date.toString()} className="font-medium text-yellow-700">{formatDistance(date, new Date(), { addSuffix: true })}</span></p>
+        <p className="font-black text-lg text-gray-800 flex items-center space-x-1">
+          <span>{ banano }</span>
+          <img src="banano.svg" className="h-4 w-4" alt="banano logo" />
+        </p>
       </div>
       <div className="flex justify-between">
-        <h3>from <a rel="noreferrer" title={transaction.account} target="_blank" className="underline" href={`https://creeper.banano.cc/explorer/account/${transaction.account}/history`}>{transaction.account.substring(0, 12)}...</a></h3>
-        <p className="font-medium text-gray-900">{fiatAmount} {currency}</p>
+        <p>from <a rel="noreferrer" title={transaction.account} target="_blank" className="underline" href={`https://creeper.banano.cc/explorer/account/${transaction.account}/history`}>{transaction.account.substring(0, 12)}...</a></p>
+        <p className="text-sm text-gray-700">{fiatAmount} {currency}</p>
       </div>
     </div>
   )
