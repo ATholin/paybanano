@@ -5,11 +5,12 @@ import PaymentHistory from "../components/PaymentHistory";
 import Title from "../components/Title";
 
 import UserContext from "../contexts/UserContext";
-import Router from "next/router";
 import CurrencyContext from "../contexts/CurrencyContext";
-import bananojs from "../helpers/bananoJsInstance";
-import verifyAddress from "../helpers/verifyAddress";
+import bananojs from "../lib/bananoJsInstance";
+import verifyAddress from "../lib/verifyAddress";
 import RequestPaymentSlide from "../components/RequestPaymentSlide";
+import { fetchBananoUsdRate, fetchFiatUsdRato } from "../lib/fetchRates";
+
 
 export default function Home() {
   const {
@@ -31,19 +32,8 @@ export default function Home() {
   }, [currency]);
 
   const updateCurrencyRates = () => {
-    fetch(
-      "https://api.coingecko.com/api/v3/simple/price?ids=BANANO&vs_currencies=USD"
-    )
-      .then((r) => r.json())
-      .then((data) => {
-        setBananoToUsd(data.banano.usd);
-      });
-
-    fetch(`https://api.exchangerate.host/latest?base=USD&symbols=${currency}`)
-      .then((r) => r.json())
-      .then((data) => {
-        setFiatToUsd(data.rates[currency]);
-      });
+    fetchBananoUsdRate().then(setBananoToUsd)
+    fetchFiatUsdRato(currency).then(setFiatToUsd)
   };
 
   const fetchPaymentHistory = () => {

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import verifyAddress from "../helpers/verifyAddress";
+import verifyAddress from "../lib/verifyAddress";
 import UserContext from "../contexts/UserContext";
 
 const DepositInformationForm = () => {

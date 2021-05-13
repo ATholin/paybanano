@@ -2,9 +2,9 @@ import { Fragment, useContext } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 
-import { currencySymbols } from '../helpers/currency'
+import { currencySymbols } from '../lib/currency'
 import UserContext from '../contexts/UserContext';
-import classNames from '../helpers/classNames';
+import classNames from '../lib/classNames';
 
 const CurrencyInformationForm = () => {
 

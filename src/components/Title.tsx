@@ -7,6 +7,6 @@ const Title = () => {
             <img className="block" src="/banano.svg" height={45} width={45} alt="banano logo" />
         </div>
     )
-  };
-  
-  export default Title;
+};
+
+export default Title;

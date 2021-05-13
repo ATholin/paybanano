@@ -10,8 +10,8 @@ import React, {
   useState,
 } from "react";
 import UserContext from "../contexts/UserContext";
-import classNames from "../helpers/classNames";
-import { currencySymbols } from "../helpers/currency";
+import classNames from "../lib/classNames";
+import { currencySymbols } from "../lib/currency";
 
 const RequestPaymentSlide = forwardRef((props, ref) => {
   const { currency, requestAmount, setRequestAmount, setCurrency } = useContext(UserContext);
@@ -188,17 +188,17 @@ const RequestPaymentSlide = forwardRef((props, ref) => {
                     {
                       (Number(requestAmount) && Number(requestAmount) > 0) ? (
                         <Link href="/payment">
-                      <a className="mt-4 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-md px-4 py-2 text-base font-medium text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
-                        Request
+                          <a className="mt-4 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-md px-4 py-2 text-base font-medium text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
+                            Request
                       </a>
-                    </Link>
-                      ): (
+                        </Link>
+                      ) : (
                         <span className="mt-4 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-md px-4 py-2 text-base font-medium text-gray-600 bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:text-sm cursor-not-allowed">
                           Request
                         </span>
                       )
                     }
-                    
+
                     {/* /End replace */}
                   </div>
                 </div>

@@ -6,7 +6,7 @@ import DepositInformationForm from '../components/DepositInformationForm';
 import CurrencyInformationForm from '../components/CurrencyInformationForm';
 import Router from "next/router";
 import StartDisclosure from '../components/StartDisclosure';
-import verifyAddress from '../helpers/verifyAddress';
+import verifyAddress from '../lib/verifyAddress';
 import Footer from '../components/Footer'
 
 const Start = () => {
